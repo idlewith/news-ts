@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# TypeScript
+*.tsbuildinfo
+*.js.map
+*.js
+
+# Visual Studio Code
+.vscode/
+
+# IDE-specific files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Compiled output
+dist/
+out/
+
+# Logs and databases
+*.log
+*.sqlite
+
+# OS-specific files
+.DS_Store
+Thumbs.db
