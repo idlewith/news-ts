@@ -31,12 +31,14 @@ function extractNews(html: string): string {
   return textList.join('\n\n')
 }
 
-async function getNews(): Promise<void> {
+async function getNews(): Promise<string> {
   const html = await getTextFromUrl()
-  const newsText = extractNews(html)
-  console.log(newsText)
+  return extractNews(html)
 }
 
 if (require.main === module) {
-  getNews()
+  ;(async () => {
+    const newsText = await getNews()
+    console.log(newsText)
+  })()
 }
