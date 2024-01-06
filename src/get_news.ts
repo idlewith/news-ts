@@ -13,21 +13,16 @@ async function getTextFromUrl(): Promise<string> {
 
 function extractNews(html: string): string {
   const $ = cheerio.load(html)
-  const divContent = $('#js_content')
-
   const textList: string[] = []
-  divContent.find('p').each((index, element) => {
-    const textP = $(element).text().trim()
-
-    const keywordNewsPart = '；'
-    const isNewsTextExist = textP.includes(keywordNewsPart)
-    if (!isNewsTextExist) {
-      return
-    }
-
-    textList.push(textP)
-  })
-
+  $('#js_content')
+    .find('p')
+    .each((index, element) => {
+      const text = $(element).text().trim()
+      const keywordOfNewsPart = '；'
+      if (text.includes(keywordOfNewsPart)) {
+        textList.push(text)
+      }
+    })
   return textList.join('\n\n')
 }
 
